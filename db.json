@@ -1,0 +1,230 @@
+{
+  "optionals": [
+    {
+      "id": "2.1",
+      "title": "Интеграция с 1C",
+      "workTime": 5,
+      "hourPrice": 500,
+      "endPrice": 2500
+    },
+    {
+      "id": "2.2",
+      "title": "Интеграция с  Битрикс",
+      "workTime": 5,
+      "hourPrice": 500,
+      "endPrice": 2500
+    },
+    {
+      "id": "2.3",
+      "title": "Новогоднее оформление",
+      "workTime": 5,
+      "hourPrice": 500,
+      "endPrice": 2500
+    },
+    {
+      "id": "2.4",
+      "title": "Тёмная тема",
+      "workTime": 5,
+      "hourPrice": 500,
+      "endPrice": 2500
+    },
+    {
+      "id": "2.5",
+      "title": "Push-уведомления",
+      "workTime": 5,
+      "hourPrice": 500,
+      "endPrice": 2500
+    }
+  ],
+  "shopForm": {
+    "default": {
+      "entries": [
+        {
+          "id": 1,
+          "title": "Фильтрация",
+          "children": [
+            {
+              "id": 1,
+              "title": "Дизайн",
+              "defaultIn": false,
+              "workTime": 1,
+              "hourPrice": 500
+            },
+            {
+              "id": 2,
+              "title": "Frontend",
+              "defaultIn": true,
+              "workTime": 1,
+              "hourPrice": 500
+            },
+            {
+              "id": 3,
+              "title": "Backend",
+              "defaultIn": true,
+              "workTime": 1,
+              "hourPrice": 500
+            },
+            {
+              "id": 4,
+              "title": "QA-тестирование",
+              "defaultIn": true,
+              "workTime": 1,
+              "hourPrice": 500
+            },
+            {
+              "id": 5,
+              "title": "Работа TL и PM",
+              "defaultIn": true,
+              "workTime": 1,
+              "hourPrice": 500
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Поиск",
+          "children": [
+            {
+              "id": 1,
+              "title": "Дизайн",
+              "defaultIn": true,
+              "workTime": 1,
+              "hourPrice": 500
+            },
+            {
+              "id": 2,
+              "title": "Frontend",
+              "defaultIn": true,
+              "workTime": 1,
+              "hourPrice": 500
+            },
+            {
+              "id": 3,
+              "title": "Backend",
+              "defaultIn": true,
+              "workTime": 1,
+              "hourPrice": 500
+            },
+            {
+              "id": 4,
+              "title": "QA-тестирование",
+              "defaultIn": true,
+              "workTime": 1,
+              "hourPrice": 500
+            },
+            {
+              "id": 5,
+              "title": "Работа TL и PM",
+              "defaultIn": true,
+              "workTime": 1,
+              "hourPrice": 500
+            }
+          ]
+        }
+      ]
+    },
+    "optional": {
+      "entries": [
+      ]
+    }
+  },
+  "landForm": {
+    "default": {
+      "entries": [
+        {
+          "id": 1,
+          "title": "Фильтрация",
+          "children": [
+            {
+              "id": 1,
+              "title": "Дизайн",
+              "defaultIn": false,
+              "workTime": 1,
+              "hourPrice": 500
+            },
+            {
+              "id": 2,
+              "title": "Frontend",
+              "defaultIn": true,
+              "workTime": 1,
+              "hourPrice": 500
+            },
+            {
+              "id": 3,
+              "title": "Backend",
+              "defaultIn": true,
+              "workTime": 1,
+              "hourPrice": 500
+            },
+            {
+              "id": 4,
+              "title": "QA-тестирование",
+              "defaultIn": true,
+              "workTime": 1,
+              "hourPrice": 500
+            },
+            {
+              "id": 5,
+              "title": "Работа TL и PM",
+              "defaultIn": true,
+              "workTime": 1,
+              "hourPrice": 500
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Поиск",
+          "children": [
+            {
+              "id": 1,
+              "title": "Дизайн",
+              "defaultIn": true,
+              "workTime": 1,
+              "hourPrice": 500
+            },
+            {
+              "id": 2,
+              "title": "Frontend",
+              "defaultIn": true,
+              "workTime": 1,
+              "hourPrice": 500
+            },
+            {
+              "id": 3,
+              "title": "Backend",
+              "defaultIn": true,
+              "workTime": 1,
+              "hourPrice": 500
+            },
+            {
+              "id": 4,
+              "title": "QA-тестирование",
+              "defaultIn": true,
+              "workTime": 1,
+              "hourPrice": 500
+            },
+            {
+              "id": 5,
+              "title": "Работа TL и PM",
+              "defaultIn": true,
+              "workTime": 1,
+              "hourPrice": 500
+            }
+          ]
+        }
+      ]
+    },
+    "optional": {
+      "entries": [
+        {
+          "id": 3,
+          "title": "Интеграция с 1C",
+          "workTime": 5,
+          "hourPrice": 500,
+          "endPrice": 2500
+        }
+      ]
+    }
+  }
+}
