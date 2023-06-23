@@ -40,7 +40,10 @@ const filterOption = (input, option) => {
 };
 const handleSelect = (value, option) => {
   console.log(value, option);
-  blueprintStore.fetchOptionById(value).catch((reason) => console.log(reason));
+  blueprintStore
+    .fetchOptionById(value)
+    .then(() => blueprintStore.setSectionProps("optional"))
+    .catch((reason) => console.log(reason));
 };
 
 const options = computed(() =>

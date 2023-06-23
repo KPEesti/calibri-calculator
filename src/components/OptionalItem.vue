@@ -20,6 +20,13 @@
         @change="setWorkTime(point.id, $event.target.value)"
       />
       <input disabled type="number" :value="point.endPrice" placeholder="Цена" @click.stop />
+      <img
+        src="/trash.svg"
+        width="30"
+        alt=""
+        style="cursor: pointer"
+        @click="deleteOption(point.id)"
+      />
     </div>
   </div>
 </template>
@@ -52,6 +59,10 @@ const setWorkTime = (id, value) => {
 };
 const setPrice = (id, value) => {
   blueprintStore.setOptionalBlockField(id, { hourPrice: parseInt(value) });
+};
+
+const deleteOption = (id) => {
+  blueprintStore.deleteOptionById(id);
 };
 </script>
 

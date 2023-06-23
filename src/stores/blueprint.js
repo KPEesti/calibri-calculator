@@ -111,6 +111,10 @@ export const useBlueprintStore = defineStore("blueprint", {
       this.blueprint.optional.entries.set(blockId, tmp);
 
       this.setSectionProps("optional");
+    },
+    deleteOptionById(id) {
+      this.blueprint.optional.entries.delete(id);
+      this.setSectionProps("optional");
     }
   }
 });
