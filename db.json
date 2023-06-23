@@ -1,35 +1,35 @@
 {
   "optionals": [
     {
-      "id": "2.1",
+      "id": 1,
       "title": "Интеграция с 1C",
       "workTime": 5,
       "hourPrice": 500,
       "endPrice": 2500
     },
     {
-      "id": "2.2",
+      "id": 2,
       "title": "Интеграция с  Битрикс",
       "workTime": 5,
       "hourPrice": 500,
       "endPrice": 2500
     },
     {
-      "id": "2.3",
+      "id": 3,
       "title": "Новогоднее оформление",
       "workTime": 5,
       "hourPrice": 500,
       "endPrice": 2500
     },
     {
-      "id": "2.4",
+      "id": 4,
       "title": "Тёмная тема",
       "workTime": 5,
       "hourPrice": 500,
       "endPrice": 2500
     },
     {
-      "id": "2.5",
+      "id": 5,
       "title": "Push-уведомления",
       "workTime": 5,
       "hourPrice": 500,
@@ -125,6 +125,20 @@
     },
     "optional": {
       "entries": [
+        {
+          "id": 3,
+          "title": "Новогоднее оформление",
+          "workTime": 5,
+          "hourPrice": 500,
+          "endPrice": 2500
+        },
+        {
+          "id": 4,
+          "title": "Тёмная тема",
+          "workTime": 5,
+          "hourPrice": 500,
+          "endPrice": 2500
+        }
       ]
     }
   },

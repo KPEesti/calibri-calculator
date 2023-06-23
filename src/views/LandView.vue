@@ -1,9 +1,31 @@
-<template>Land View</template>
+<template>
+  <div class="view-wrapper">
+    <h2>Лэндинг</h2>
+    <div v-if="!appStore.appLoading">
+      <LogicalSection />
+      <OptionalSection />
+      <PriceSummary
+        :end-price="blueprintStore.getEndPrice"
+        :work-time="blueprintStore.getEndWorkTime"
+      />
+    </div>
+  </div>
+</template>
 
-<script>
-export default {
-  name: "LandView"
-};
+<script setup>
+import { useBlueprintStore } from "@/stores/blueprint";
+import { useAppStore } from "@/stores/app";
+import LogicalSection from "@/components/DefaultSection.vue";
+import OptionalSection from "@/components/OptionalSection.vue";
+import PriceSummary from "@/components/PriceSummary.vue";
+
+const blueprintStore = useBlueprintStore();
+const appStore = useAppStore();
+
+appStore.setAppStatus(true);
+Promise.all([blueprintStore.fetchBlueprint("landForm"), blueprintStore.fetchOptions()]).finally(
+  () => appStore.setAppStatus(false)
+);
 </script>
 
 <style scoped></style>

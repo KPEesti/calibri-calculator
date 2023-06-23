@@ -22,7 +22,10 @@ import PriceSummary from "@/components/PriceSummary.vue";
 const blueprintStore = useBlueprintStore();
 const appStore = useAppStore();
 
-blueprintStore.fetchBlueprint("shopForm");
+appStore.setAppStatus(true);
+Promise.all([blueprintStore.fetchBlueprint("shopForm"), blueprintStore.fetchOptions()]).finally(
+  () => appStore.setAppStatus(false)
+);
 </script>
 
 <style scoped>

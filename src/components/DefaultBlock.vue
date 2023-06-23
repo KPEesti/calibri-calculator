@@ -1,11 +1,7 @@
 <template>
   <div class="wrapper">
     <div>
-      <ParentOptionItem
-        :static="true"
-        :handleClick="handleCollapse"
-        :point="point"
-      />
+      <ParentOptionItem :static="true" :handleClick="handleCollapse" :point="point" />
     </div>
     <transition name="collapse">
       <div v-if="collapsed" class="collapse-block">

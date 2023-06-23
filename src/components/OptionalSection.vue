@@ -1,17 +1,29 @@
 <template>
   <div class="section-wrapper">
-    <h2>Дополнительные опции</h2>
+    <div>
+      <h2>Дополнительные опции</h2>
+    </div>
     <OptionalItem
-      v-for="item in blueprintStore.blueprint.optional.entries"
+      v-for="item in blueprintStore.blueprint.optional.entries.values()"
       :point="item"
-      :key="item"
-      @handle-price="handlePrice"
-      @handle-count="handleCount"
+      :key="item.id"
     />
-    <PriceSummary
-      :end-price="blueprintStore.blueprint.optional.endPrice"
-      :work-time="blueprintStore.blueprint.optional.workTime"
-    />
+    <div class="footer">
+      <a-select
+        :value="selected"
+        placeholder="Добавить опцию"
+        style="width: 200px"
+        :options="options"
+        show-search
+        :filter-option="filterOption"
+        @select="handleSelect"
+      >
+      </a-select>
+      <PriceSummary
+        :end-price="blueprintStore.blueprint.optional.endPrice"
+        :work-time="blueprintStore.blueprint.optional.workTime"
+      />
+    </div>
   </div>
 </template>
 
@@ -19,34 +31,25 @@
 import { useBlueprintStore } from "@/stores/blueprint";
 import OptionalItem from "@/components/OptionalItem.vue";
 import PriceSummary from "@/components/PriceSummary.vue";
-import { watch } from "vue";
+import { computed, ref } from "vue";
 
 const blueprintStore = useBlueprintStore();
-const point = blueprintStore.blueprint.optional;
 
-watch(point, () => {
-  blueprintStore.setSectionProps("optional");
-});
-
-const handlePrice = (id, value) => {
-  point.entries = point.entries.map((item) => {
-    if (item.id === id) {
-      item.hourPrice = value;
-      item.endPrice = item.hourPrice * item.workTime;
-    }
-    return item;
-  });
+const filterOption = (input, option) => {
+  return option.label.toUpperCase().indexOf(input.toUpperCase()) >= 0;
+};
+const handleSelect = (value, option) => {
+  console.log(value, option);
+  blueprintStore.fetchOptionById(value).catch((reason) => console.log(reason));
 };
 
-const handleCount = (id, value) => {
-  point.entries = point.entries.map((item) => {
-    if (item.id === id) {
-      item.workTime = value;
-      item.endPrice = item.hourPrice * item.workTime;
-    }
-    return item;
-  });
-};
+const options = computed(() =>
+  blueprintStore.options.map((option) => ({
+    value: option.id,
+    label: option.title
+  }))
+);
+const selected = ref(null);
 </script>
 
 <style scoped>
@@ -54,5 +57,11 @@ const handleCount = (id, value) => {
   border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 10px;
   padding: 10px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 </style>

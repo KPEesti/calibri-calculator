@@ -25,6 +25,9 @@
 </template>
 
 <script setup>
+import { useBlueprintStore } from "@/stores/blueprint";
+
+const blueprintStore = useBlueprintStore();
 const props = defineProps({
   point: {
     id: Number,
@@ -43,13 +46,12 @@ const props = defineProps({
     }
   }
 });
-const emit = defineEmits(["handleCount", "handlePrice"]);
 
 const setWorkTime = (id, value) => {
-  emit("handleCount", parseInt(id), parseInt(value));
+  blueprintStore.setOptionalBlockField(id, { workTime: parseInt(value) });
 };
 const setPrice = (id, value) => {
-  emit("handlePrice", parseInt(id), parseInt(value));
+  blueprintStore.setOptionalBlockField(id, { hourPrice: parseInt(value) });
 };
 </script>
 
