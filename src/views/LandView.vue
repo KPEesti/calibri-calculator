@@ -28,4 +28,10 @@ Promise.all([blueprintStore.fetchBlueprint("landForm"), blueprintStore.fetchOpti
 );
 </script>
 
-<style scoped></style>
+<style scoped>
+.view-wrapper {
+  width: 70%;
+  margin: auto;
+  padding: 10px;
+}
+</style>
