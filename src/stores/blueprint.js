@@ -1,5 +1,7 @@
 import { defineStore } from "pinia";
 
+const BASE_URL = "http://localhost:5000";
+
 export const useBlueprintStore = defineStore("blueprint", {
   state: () => {
     return {
@@ -17,7 +19,7 @@ export const useBlueprintStore = defineStore("blueprint", {
   },
   actions: {
     async fetchBlueprint(name) {
-      let data = await fetch(`http://localhost:5000/${name}`).then((res) => res.json());
+      let data = await fetch(`${BASE_URL}/${name}`).then((res) => res.json());
       data.default.entries = setDefaultEntries(data);
       data.optional.entries = new Map(data.optional.entries.map((item) => [item.id, item]));
       this.blueprint = data;
@@ -26,14 +28,14 @@ export const useBlueprintStore = defineStore("blueprint", {
       this.setSectionProps("optional");
     },
     async fetchOptions() {
-      this.options = await fetch("http://localhost:5000/optionals").then((res) => res.json());
+      this.options = await fetch(`${BASE_URL}/optionals`).then((res) => res.json());
     },
     async fetchOptionById(id) {
       if (this.blueprint.optional.entries.has(id)) {
         return Promise.reject("Данная опция уже добавлена в список");
       }
 
-      let data = await fetch(`http://localhost:5000/optionals/${id}`).then((res) => res.json());
+      let data = await fetch(`${BASE_URL}/${id}`).then((res) => res.json());
 
       this.blueprint.optional.entries.set(data.id, data);
     },

@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "vite",
+    "dev": "concurrently \"vite\" \"json-server --watch db.json\"",
     "build": "vite build",
     "preview": "vite preview",
     "test:unit": "vitest",
@@ -21,11 +21,15 @@
     "@vitejs/plugin-vue": "^4.2.3",
     "@vue/eslint-config-prettier": "^7.1.0",
     "@vue/test-utils": "^2.3.2",
+    "concurrently": "^8.2.0",
     "eslint": "^8.39.0",
     "eslint-plugin-vue": "^9.11.0",
     "jsdom": "^22.1.0",
     "prettier": "^2.8.8",
     "vite": "^4.3.9",
     "vitest": "^0.32.0"
+  },
+  "engines": {
+    "node": "20.2.0"
   }
 }
