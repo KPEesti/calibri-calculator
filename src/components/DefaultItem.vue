@@ -12,19 +12,21 @@
       <input
         type="number"
         step="50"
+        min="0"
         :disabled="!point.defaultIn"
         :value="point.hourPrice"
         placeholder="Цена"
         @click.stop
-        @change="setPrice(point.id, $event.target.value)"
+        @change="setPrice(point.id, parseInt($event.target.value))"
       />
       <input
         type="number"
+        min="0"
         :disabled="!point.defaultIn"
         :value="point.workTime"
         placeholder="Часы"
         @click.stop
-        @change="setWorkTime(point.id, $event.target.value)"
+        @change="setWorkTime(point.id, parseInt($event.target.value))"
       />
       <input disabled type="number" :value="endPrice" placeholder="Цена" @click.stop />
     </div>
@@ -60,14 +62,19 @@ const props = defineProps({
 
 const endPrice = computed(() => props.point.workTime * props.point.hourPrice);
 
-// const setField = (id, fieldName, fieldValue) => {
-//   blueprintStore.setField("default", props.parentId, id, { [fieldName]: parseInt(fieldValue) });
-// }
 const setWorkTime = (id, value) => {
-  blueprintStore.setField("default", props.parentId, id, { workTime: parseInt(value) });
+  if (Number.isNaN(value) || value <= 0) {
+    blueprintStore.setField("default", props.parentId, id, { workTime: 0 });
+  } else {
+    blueprintStore.setField("default", props.parentId, id, { workTime: parseInt(value) });
+  }
 };
 const setPrice = (id, value) => {
-  blueprintStore.setField("default", props.parentId, id, { hourPrice: parseInt(value) });
+  if (Number.isNaN(value) || value <= 0) {
+    blueprintStore.setField("default", props.parentId, id, { hourPrice: 0 });
+  } else {
+    blueprintStore.setField("default", props.parentId, id, { hourPrice: parseInt(value) });
+  }
 };
 const setDefaultIn = (id, value) => {
   blueprintStore.setField("default", props.parentId, id, { defaultIn: Boolean(value) });

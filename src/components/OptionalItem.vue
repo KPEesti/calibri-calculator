@@ -7,17 +7,19 @@
       <input
         type="number"
         step="50"
+        min="0"
         :value="point.hourPrice"
         placeholder="Цена"
         @click.stop
-        @change="setPrice(point.id, $event.target.value)"
+        @change="setPrice(point.id, parseInt($event.target.value))"
       />
       <input
         type="number"
         :value="point.workTime"
+        min="0"
         placeholder="Часы"
         @click.stop
-        @change="setWorkTime(point.id, $event.target.value)"
+        @change="setWorkTime(point.id, parseInt($event.target.value))"
       />
       <input disabled type="number" :value="point.endPrice" placeholder="Цена" @click.stop />
       <img
@@ -55,12 +57,19 @@ const props = defineProps({
 });
 
 const setWorkTime = (id, value) => {
-  blueprintStore.setOptionalBlockField(id, { workTime: parseInt(value) });
+  if (Number.isNaN(value) || value <= 0) {
+    blueprintStore.setOptionalBlockField(id, { workTime: 0 });
+  } else {
+    blueprintStore.setOptionalBlockField(id, { workTime: parseInt(value) });
+  }
 };
 const setPrice = (id, value) => {
-  blueprintStore.setOptionalBlockField(id, { hourPrice: parseInt(value) });
+  if (Number.isNaN(value) || value <= 0) {
+    blueprintStore.setOptionalBlockField(id, { hourPrice: 0 });
+  } else {
+    blueprintStore.setOptionalBlockField(id, { hourPrice: parseInt(value) });
+  }
 };
-
 const deleteOption = (id) => {
   blueprintStore.deleteOptionById(id);
 };
