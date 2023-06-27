@@ -1,6 +1,6 @@
 <template>
   <div class="view-wrapper">
-    <h2>Индивидуальный проект</h2>
+    <h2>Тип сайта &mdash; Индивидуальный проект</h2>
     <div v-if="!appStore.appLoading">
       <LogicalSection />
       <OptionalSection />
@@ -23,8 +23,8 @@ const blueprintStore = useBlueprintStore();
 const appStore = useAppStore();
 
 appStore.setAppStatus(true);
-Promise.all([blueprintStore.fetchBlueprint("indForm"), blueprintStore.fetchOptions()]).finally(
-  () => appStore.setAppStatus(false)
+Promise.all([blueprintStore.fetchBlueprint("indForm"), blueprintStore.fetchOptions()]).then(() =>
+  appStore.setAppStatus(false)
 );
 </script>
 

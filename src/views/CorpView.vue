@@ -1,6 +1,6 @@
 <template>
   <div class="view-wrapper">
-    <h2>Корпоративный сайт</h2>
+    <h2>Тип сайта &mdash; Корпоративный сайт</h2>
     <div v-if="!appStore.appLoading">
       <LogicalSection />
       <OptionalSection />
@@ -23,8 +23,8 @@ const blueprintStore = useBlueprintStore();
 const appStore = useAppStore();
 
 appStore.setAppStatus(true);
-Promise.all([blueprintStore.fetchBlueprint("corpForm"), blueprintStore.fetchOptions()]).finally(
-  () => appStore.setAppStatus(false)
+Promise.all([blueprintStore.fetchBlueprint("corpForm"), blueprintStore.fetchOptions()]).then(() =>
+  appStore.setAppStatus(false)
 );
 </script>
 

@@ -1,6 +1,6 @@
 <template>
   <div class="view-wrapper">
-    <h2>Лэндинг</h2>
+    <h2>Тип сайта &mdash; Лэндинг</h2>
     <div v-if="!appStore.appLoading">
       <LogicalSection />
       <OptionalSection />
@@ -23,8 +23,8 @@ const blueprintStore = useBlueprintStore();
 const appStore = useAppStore();
 
 appStore.setAppStatus(true);
-Promise.all([blueprintStore.fetchBlueprint("landForm"), blueprintStore.fetchOptions()]).finally(
-  () => appStore.setAppStatus(false)
+Promise.all([blueprintStore.fetchBlueprint("landForm"), blueprintStore.fetchOptions()]).then(() =>
+  appStore.setAppStatus(false)
 );
 </script>
 

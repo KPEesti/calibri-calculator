@@ -1,12 +1,14 @@
 <template>
   <div class="option-wrapper" @click="props.handleClick">
     <div class="option-wrapper option-item">
-      <a-checkbox
-        @click.stop
-        @change="checkAll(point.id, $event.target.checked)"
-        :checked="point.defaultIn"
-        :indeterminate="indeterminate"
-      />
+      <div>
+        <a-checkbox
+          @click.stop
+          @change="checkAll(point.id, $event.target.checked)"
+          :checked="point.defaultIn"
+          :indeterminate="indeterminate"
+        />
+      </div>
       <h3>{{ props.point.title }}</h3>
     </div>
     <div class="option-wrapper">
@@ -63,6 +65,8 @@ const checkAll = (blockId, value) => {
   justify-content: space-between;
   align-items: center;
   padding: 5px;
+
+  cursor: pointer;
 }
 
 .option-item > h3 {
@@ -73,5 +77,11 @@ input {
   padding: 3px;
   margin-left: 10px;
   border-radius: 10px;
+}
+
+@media print {
+  .option-item > div {
+    display: none !important;
+  }
 }
 </style>

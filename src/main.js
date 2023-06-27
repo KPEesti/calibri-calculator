@@ -1,4 +1,5 @@
 import "./assets/main.css";
+import "./assets/print.css";
 import "ant-design-vue/dist/antd.css";
 
 import { createApp } from "vue";

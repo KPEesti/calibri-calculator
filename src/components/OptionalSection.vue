@@ -9,16 +9,18 @@
       :key="item.id"
     />
     <div class="footer">
-      <a-select
-        :value="selected"
-        placeholder="Добавить опцию"
-        style="width: 200px"
-        :options="options"
-        show-search
-        :filter-option="filterOption"
-        @select="handleSelect"
-      >
-      </a-select>
+      <div class="select">
+        <a-select
+          :value="selected"
+          placeholder="Добавить опцию"
+          style="width: 200px"
+          :options="options"
+          show-search
+          :filter-option="filterOption"
+          @select="handleSelect"
+        >
+        </a-select>
+      </div>
       <PriceSummary
         :end-price="blueprintStore.blueprint.optional.endPrice"
         :work-time="blueprintStore.blueprint.optional.workTime"
@@ -66,5 +68,11 @@ const selected = ref(null);
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+@media print {
+  .footer > .select {
+    opacity: 0;
+  }
 }
 </style>

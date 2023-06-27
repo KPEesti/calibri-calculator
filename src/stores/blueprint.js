@@ -35,7 +35,7 @@ export const useBlueprintStore = defineStore("blueprint", {
         return Promise.reject("Данная опция уже добавлена в список");
       }
 
-      let data = await fetch(`${BASE_URL}/${id}`).then((res) => res.json());
+      let data = await fetch(`${BASE_URL}/optionals/${id}`).then((res) => res.json());
 
       this.blueprint.optional.entries.set(data.id, data);
     },

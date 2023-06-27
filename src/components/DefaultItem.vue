@@ -1,11 +1,14 @@
 <template>
   <div class="option-wrapper" @click="props.handleClick">
     <div class="option-wrapper option-item">
-      <a-checkbox
-        @click.stop
-        @change="setDefaultIn(point.id, $event.target.checked)"
-        :checked="point.defaultIn"
-      />
+      <div>
+        <a-checkbox
+          class="checkbox"
+          @click.stop
+          @change="setDefaultIn(point.id, $event.target.checked)"
+          :checked="point.defaultIn"
+        />
+      </div>
       <h3>{{ props.point.title }}</h3>
     </div>
     <div class="option-wrapper">
@@ -101,5 +104,11 @@ input {
   padding: 3px;
   margin-left: 10px;
   border-radius: 10px;
+}
+
+@media print {
+  .option-item > div {
+    display: none !important;
+  }
 }
 </style>

@@ -92,4 +92,10 @@ input {
   margin-left: 10px;
   border-radius: 10px;
 }
+
+@media print {
+  img {
+    display: none !important;
+  }
+}
 </style>
