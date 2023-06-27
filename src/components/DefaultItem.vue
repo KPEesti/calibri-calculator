@@ -1,5 +1,5 @@
 <template>
-  <div class="option-wrapper" @click="props.handleClick">
+  <div class="option-wrapper" :class="{unprintable: !props.point.defaultIn}" @click="props.handleClick">
     <div class="option-wrapper option-item">
       <div>
         <a-checkbox
@@ -108,6 +108,10 @@ input {
 
 @media print {
   .option-item > div {
+    display: none !important;
+  }
+
+  .unprintable {
     display: none !important;
   }
 }
