@@ -12,6 +12,7 @@
       <button class="print-button" @click="handleClick">Сформировать PDF</button>
     </div>
   </div>
+  <FrameError/>
 </template>
 
 <script setup>
@@ -20,6 +21,7 @@ import { useAppStore } from "@/stores/app";
 import LogicalSection from "@/components/DefaultSection.vue";
 import OptionalSection from "@/components/OptionalSection.vue";
 import PriceSummary from "@/components/PriceSummary.vue";
+import FrameError from "@/components/FrameError.vue";
 
 const blueprintStore = useBlueprintStore();
 const appStore = useAppStore();

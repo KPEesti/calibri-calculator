@@ -34,18 +34,20 @@ import { useBlueprintStore } from "@/stores/blueprint";
 import OptionalItem from "@/components/OptionalItem.vue";
 import PriceSummary from "@/components/PriceSummary.vue";
 import { computed, ref } from "vue";
+import { handleError } from "@/services/errorHandler";
 
 const blueprintStore = useBlueprintStore();
 
 const filterOption = (input, option) => {
   return option.label.toUpperCase().indexOf(input.toUpperCase()) >= 0;
 };
-const handleSelect = (value, option) => {
-  console.log(value, option);
+const handleSelect = (value) => {
   blueprintStore
     .fetchOptionById(value)
     .then(() => blueprintStore.setSectionProps("optional"))
-    .catch((reason) => console.log(reason));
+    .catch((reason) => {
+      handleError(reason);
+    });
 };
 
 const options = computed(() =>
