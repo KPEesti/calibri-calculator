@@ -37,7 +37,7 @@ const declOfHour = computed(() => {
     props.workTime % 100 > 4 && props.workTime % 100 < 20
       ? 2
       : cases[props.workTime % 10 < 5 ? props.workTime % 10 : 5]
-    ];
+  ];
 });
 </script>
 

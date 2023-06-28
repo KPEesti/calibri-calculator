@@ -10,7 +10,6 @@
 import { useAppStore } from "@/stores/app";
 
 const appStore = useAppStore();
-
 </script>
 
 <style scoped>
@@ -31,7 +30,7 @@ const appStore = useAppStore();
 
 .error-enter-active,
 .error-leave-active {
-  transition: transform .4s ease-in-out;
+  transition: transform 0.4s ease-in-out;
 }
 
 .error-enter-from,

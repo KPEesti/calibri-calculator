@@ -12,7 +12,7 @@
       <button class="print-button" @click="handleClick">Сформировать PDF</button>
     </div>
   </div>
-  <FrameError/>
+  <FrameError />
 </template>
 
 <script setup>

@@ -1,5 +1,9 @@
 <template>
-  <div class="option-wrapper" :class="{unprintable: !props.point.defaultIn}" @click="props.handleClick">
+  <div
+    class="option-wrapper"
+    :class="{ unprintable: !props.point.defaultIn }"
+    @click="props.handleClick"
+  >
     <div class="option-wrapper option-item">
       <div>
         <a-checkbox
