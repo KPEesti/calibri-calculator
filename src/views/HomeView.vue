@@ -7,6 +7,7 @@
       <PriceSummary
         :end-price="blueprintStore.getEndPrice"
         :work-time="blueprintStore.getEndWorkTime"
+        :primary="true"
       />
       <button class="print-button" @click="handleClick">Сформировать PDF</button>
     </div>
