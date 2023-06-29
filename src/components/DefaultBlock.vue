@@ -38,7 +38,7 @@ const point = blueprintStore.blueprint.default.entries.get(props.id);
 
 <style scoped>
 .wrapper {
-  border: 1px solid #f5f5f5;
+  border: 1px solid #e0e0e0;
   overflow: hidden;
   height: auto;
 }

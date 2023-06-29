@@ -77,11 +77,18 @@ input {
   padding: 3px;
   margin-left: 10px;
   border-radius: 10px;
+  width: 100px;
 }
 
 @media print {
   .option-item > div {
     display: none !important;
+  }
+
+  input {
+    border: none;
+    border-bottom: 1px dashed #cccccc;
+    border-radius: 0;
   }
 }
 </style>

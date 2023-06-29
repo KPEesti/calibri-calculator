@@ -1,7 +1,10 @@
 <template>
-  <div class="section-wrapper">
+  <div class="section__wrapper">
     <div>
       <h2>Дополнительные опции</h2>
+      <div>
+
+      </div>
     </div>
     <OptionalItem
       v-for="item in blueprintStore.blueprint.optional.entries.values()"
@@ -60,11 +63,13 @@ const selected = ref(null);
 </script>
 
 <style scoped>
-.section-wrapper {
+.section__wrapper {
   border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 10px;
   padding: 10px;
+  margin-bottom: 20px;
 }
+
 
 .footer {
   display: flex;

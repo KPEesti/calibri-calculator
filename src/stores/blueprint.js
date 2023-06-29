@@ -28,14 +28,14 @@ export const useBlueprintStore = defineStore("blueprint", {
       this.setSectionProps("optional");
     },
     async fetchOptions() {
-      this.options = await fetch(`${BASE_URL}/optionals`).then((res) => res.json());
+      this.options = await fetch(`${BASE_URL}/options`).then((res) => res.json());
     },
     async fetchOptionById(id) {
       if (this.blueprint.optional.entries.has(id)) {
         return Promise.reject("Данная опция уже добавлена в список");
       }
 
-      let data = await fetch(`${BASE_URL}/optionals/${id}`).then((res) => res.json());
+      let data = await fetch(`${BASE_URL}/options/${id}`).then((res) => res.json());
 
       this.blueprint.optional.entries.set(data.id, data);
     },

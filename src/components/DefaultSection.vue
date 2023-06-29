@@ -1,5 +1,5 @@
 <template>
-  <div class="section-wrapper">
+  <div class="section__wrapper">
     <h2>Стандартные опции</h2>
     <OptionsBlock
       v-for="id in blueprintStore.blueprint.default.entries.keys()"
@@ -16,18 +16,12 @@
 <script setup>
 import OptionsBlock from "@/components/DefaultBlock.vue";
 import { useBlueprintStore } from "@/stores/blueprint";
-import { watch } from "vue";
 import PriceSummary from "@/components/PriceSummary.vue";
-
 const blueprintStore = useBlueprintStore();
-
-watch(blueprintStore.blueprint.default, () => {
-  blueprintStore.setSectionProps("default");
-});
 </script>
 
 <style scoped>
-.section-wrapper {
+.section__wrapper {
   border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 10px;
   padding: 10px;

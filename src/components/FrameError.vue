@@ -17,7 +17,7 @@ const appStore = useAppStore();
   width: 20%;
   height: 80px;
   padding: 10px;
-  position: absolute;
+  position: fixed;
   top: 10px;
   left: 10px;
 
@@ -30,12 +30,12 @@ const appStore = useAppStore();
 
 .error-enter-active,
 .error-leave-active {
-  transition: transform 0.4s ease-in-out;
+  transition: transform 0.5s ease-in-out;
 }
 
 .error-enter-from,
 .error-leave-to {
-  transform: translate(-300px);
+  transform: translate(-400px);
 }
 
 .error-enter-to,

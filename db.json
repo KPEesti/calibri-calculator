@@ -1,5 +1,5 @@
 {
-  "optionals": [
+  "options": [
     {
       "id": 1,
       "title": "Интеграция с 1C",
